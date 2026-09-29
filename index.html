@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-palette="floral">
+<html lang="en" data-palette="lavender">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -392,14 +392,14 @@
   </div>
 </footer>
 
-<!-- Palette preview: for testing colours, remove before launch -->
-<div class="palette-switcher" role="group" aria-label="Colour palette preview">
+<!-- Palette preview: hidden unless the URL has ?palette=… -->
+<div class="palette-switcher" role="group" hidden aria-label="Colour palette preview">
   <p class="palette-switcher-label">Palette</p>
-  <button type="button" data-palette="floral" aria-pressed="true">
+  <button type="button" data-palette="floral" aria-pressed="false">
     <span class="swatches" aria-hidden="true"><i style="background:#699ADD"></i><i style="background:#BDB65C"></i><i style="background:#9DD431"></i><i style="background:#6D5AAC"></i><i style="background:#3B3C1C"></i></span>
     Floral Accents
   </button>
-  <button type="button" data-palette="lavender" aria-pressed="false">
+  <button type="button" data-palette="lavender" aria-pressed="true">
     <span class="swatches" aria-hidden="true"><i style="background:#FFFAAC"></i><i style="background:#EEA2AF"></i><i style="background:#9DA0D7"></i><i style="background:#35738C"></i><i style="background:#033F40"></i></span>
     Pinks &amp; Lavenders
   </button>

@@ -177,7 +177,8 @@ try { saved = localStorage.getItem("lang"); } catch {}
 const browserLang = (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
 setLang(saved === "es" || saved === "en" ? saved : browserLang);
 
-// Palette preview: ?palette=floral|lavender|olive|desert, or the switcher buttons.
+// Palette preview: the site uses "lavender". Add ?palette=floral|lavender|olive|desert
+// to the URL to preview another palette and show the switcher.
 const PALETTES = ["floral", "lavender", "olive", "desert"];
 function setPalette(name) {
   if (!PALETTES.includes(name)) return;
@@ -185,13 +186,14 @@ function setPalette(name) {
   document.querySelectorAll(".palette-switcher button").forEach((btn) => {
     btn.setAttribute("aria-pressed", String(btn.dataset.palette === name));
   });
-  try { localStorage.setItem("palette", name); } catch {}
 }
 document.querySelectorAll(".palette-switcher button").forEach((btn) => {
   btn.addEventListener("click", () => setPalette(btn.dataset.palette));
 });
-let savedPalette = new URLSearchParams(location.search).get("palette");
-if (!savedPalette) { try { savedPalette = localStorage.getItem("palette"); } catch {} }
-if (savedPalette) setPalette(savedPalette);
+const previewPalette = new URLSearchParams(location.search).get("palette");
+if (previewPalette) {
+  setPalette(previewPalette);
+  document.querySelector(".palette-switcher")?.removeAttribute("hidden");
+}
 
 document.getElementById("year").textContent = new Date().getFullYear();

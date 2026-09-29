@@ -307,6 +307,7 @@ details p { color: var(--muted); padding-bottom: 20px; margin: 0; max-width: 65c
 .footer-inner p { margin: 0; }
 
 /* ---------- Palette preview (remove before launch) ---------- */
+.palette-switcher[hidden] { display: none; }
 .palette-switcher {
   position: fixed; left: 16px; bottom: 16px; z-index: 20;
   display: flex; flex-direction: column; gap: 4px;
