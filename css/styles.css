@@ -63,17 +63,18 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid var(--line);
 }
 .header-inner { display: flex; align-items: center; gap: 24px; min-height: 68px; }
-.brand { display: flex; align-items: center; gap: .5rem; text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
-.brand-mark { width: 26px; height: 26px; fill: none; stroke: var(--accent); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.brand { display: flex; align-items: center; gap: .5rem; text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; white-space: nowrap; }
+.brand-mark { flex-shrink: 0; width: 26px; height: 26px; fill: none; stroke: var(--accent); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .nav { display: none; gap: 22px; margin-left: auto; }
 .nav a { text-decoration: none; font-weight: 500; color: var(--muted); white-space: nowrap; }
 .nav a:hover { color: var(--text); }
 .header-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
-@media (min-width: 1040px) {
+@media (min-width: 1120px) {
   .nav { display: flex; }
   .header-actions { margin-left: 8px; }
 }
-@media (max-width: 420px) { .header-actions .btn-sm { display: none; } }
+@media (max-width: 480px) { .header-actions .btn-sm { display: none; } }
+@media (max-width: 380px) { .brand { font-size: 1.05rem; } }
 
 .lang-toggle { display: flex; border: 1.5px solid var(--line); border-radius: 999px; padding: 3px; }
 .lang-toggle button {
