@@ -143,7 +143,10 @@ const ES = {
   "footer.portfolio": "Mi música y portfolio",
 };
 
-const WHATSAPP_NUMBER = "34684726037";
+// The number is stored in reversed chunks and only turned into a link when
+// someone clicks, so it never appears in the page for scrapers to read.
+const WHATSAPP_PARTS = ["037", "726", "684", "34"];
+let currentLang = "en";
 const WHATSAPP_TEXT = {
   en: "Hi Ryan! I'm interested in a trial lesson.",
   es: "¡Hola Ryan! Me interesa una clase de prueba.",
@@ -152,6 +155,16 @@ const WHATSAPP_TEXT = {
 const nodes = document.querySelectorAll("[data-i18n]");
 const EN = {};
 nodes.forEach((el) => { EN[el.dataset.i18n] ??= el.innerHTML; });
+
+function whatsappHref() {
+  const number = [...WHATSAPP_PARTS].reverse().join("");
+  return `https://wa.me/${number}?text=${encodeURIComponent(WHATSAPP_TEXT[currentLang])}`;
+}
+document.querySelectorAll(".js-whatsapp").forEach((a) => {
+  const reveal = () => { a.href = whatsappHref(); };
+  a.addEventListener("pointerdown", reveal);
+  a.addEventListener("click", reveal);
+});
 
 function setLang(lang) {
   const dict = lang === "es" ? ES : EN;
@@ -163,8 +176,7 @@ function setLang(lang) {
   document.querySelectorAll(".lang-toggle button").forEach((btn) => {
     btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
   });
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_TEXT[lang])}`;
-  document.querySelectorAll(".js-whatsapp").forEach((a) => { a.href = href; });
+  currentLang = lang;
   try { localStorage.setItem("lang", lang); } catch {}
 }
 
