@@ -1,0 +1,222 @@
+/* Colour palettes from xp-pen.com/blog/nature-color-palette.html.
+   The active palette is set by data-palette on <html>. Each palette fills the same
+   semantic tokens, so styles.css never references a raw palette colour. */
+
+:root {
+  --shadow-light: 0 1px 2px rgba(0, 0, 0, .05), 0 12px 32px -12px rgba(0, 0, 0, .2);
+  --shadow-dark: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 32px -12px rgba(0, 0, 0, .6);
+  --shadow: var(--shadow-light);
+}
+
+/* Floral Accents: Nature's Pops of Color
+   #699ADD blue · #BDB65C olive · #9DD431 lime · #6D5AAC violet · #3B3C1C moss */
+:root[data-palette="floral"] {
+  --bg: #F9F9F2;
+  --surface: #FFFFFF;
+  --text: #3B3C1C;
+  --muted: #5E5F3D;
+  --line: #E3E2CB;
+  --accent: #6D5AAC;
+  --primary: #6D5AAC;
+  --primary-hover: #574790;
+  --on-primary: #FFFFFF;
+  --english: #699ADD;
+  --on-english: #1E2A12;
+  --english-text: #3E6DB0;
+  --music: #9DD431;
+  --on-music: #3B3C1C;
+  --band-english: #E7EEF9;
+  --band-warm: #F1F0DC;
+  --tint-english: #E3ECF9;
+  --tint-music: #ECF6D9;
+  --rule: #BDB65C;
+  --cta-bg: #3B3C1C;
+  --cta-text: #F9F9F2;
+  --cta-btn: #9DD431;
+  --cta-btn-text: #3B3C1C;
+  --glow: rgba(105, 154, 221, .28);
+  --dot-1: #699ADD;
+  --dot-2: #9DD431;
+  --dot-3: #6D5AAC;
+}
+
+/* Gentle Pinks and Lavenders: The Early Serenity
+   #FFFAAC butter · #EEA2AF pink · #9DA0D7 lavender · #35738C teal · #033F40 deep teal */
+:root[data-palette="lavender"] {
+  --bg: #FDF8F8;
+  --surface: #FFFFFF;
+  --text: #033F40;
+  --muted: #3C6566;
+  --line: #EFDDE2;
+  --accent: #35738C;
+  --primary: #35738C;
+  --primary-hover: #033F40;
+  --on-primary: #FFFFFF;
+  --english: #9DA0D7;
+  --on-english: #033F40;
+  --english-text: #5458A6;
+  --music: #EEA2AF;
+  --on-music: #033F40;
+  --band-english: #EEEEF9;
+  --band-warm: #FCECEF;
+  --tint-english: #E8E9F7;
+  --tint-music: #FBE4E8;
+  --rule: #EEA2AF;
+  --cta-bg: #033F40;
+  --cta-text: #FDF8F8;
+  --cta-btn: #FFFAAC;
+  --cta-btn-text: #033F40;
+  --glow: rgba(238, 162, 175, .35);
+  --dot-1: #FFFAAC;
+  --dot-2: #EEA2AF;
+  --dot-3: #9DA0D7;
+}
+
+/* Balanced Olive Undertones: Earthy Depth
+   #BCA3A4 mauve · #A2B7B0 sage · #9B9E56 olive · #525B02 deep olive · #695216 bronze */
+:root[data-palette="olive"] {
+  --bg: #F8F7F1;
+  --surface: #FFFFFF;
+  --text: #2F3406;
+  --muted: #5C5E45;
+  --line: #E2E1D2;
+  --accent: #695216;
+  --primary: #525B02;
+  --primary-hover: #3E4501;
+  --on-primary: #FFFFFF;
+  --english: #A2B7B0;
+  --on-english: #2F3406;
+  --english-text: #4C6B61;
+  --music: #9B9E56;
+  --on-music: #2F3406;
+  --band-english: #EBF0EE;
+  --band-warm: #F3ECEC;
+  --tint-english: #E4ECE9;
+  --tint-music: #EEEFDE;
+  --rule: #9B9E56;
+  --cta-bg: #525B02;
+  --cta-text: #F8F7F1;
+  --cta-btn: #BCA3A4;
+  --cta-btn-text: #2F3406;
+  --glow: rgba(162, 183, 176, .38);
+  --dot-1: #BCA3A4;
+  --dot-2: #A2B7B0;
+  --dot-3: #9B9E56;
+}
+
+/* Sky High: The Desert's Brilliant Blues
+   #C3D1E6 sky · #5684B0 blue · #C16630 terracotta · #783215 rust · #531E0E earth */
+:root[data-palette="desert"] {
+  --bg: #FBF7F2;
+  --surface: #FFFFFF;
+  --text: #531E0E;
+  --muted: #7A4E3C;
+  --line: #EADBCD;
+  --accent: #C16630;
+  --primary: #783215;
+  --primary-hover: #531E0E;
+  --on-primary: #FFFFFF;
+  --english: #5684B0;
+  --on-english: #FFFFFF;
+  --english-text: #4A76A2;
+  --music: #C16630;
+  --on-music: #FFFFFF;
+  --band-english: #E3EAF4;
+  --band-warm: #F5E9DE;
+  --tint-english: #E3EAF4;
+  --tint-music: #F6E1D2;
+  --rule: #C16630;
+  --cta-bg: #531E0E;
+  --cta-text: #FBF7F2;
+  --cta-btn: #C3D1E6;
+  --cta-btn-text: #531E0E;
+  --glow: rgba(195, 209, 230, .55);
+  --dot-1: #C3D1E6;
+  --dot-2: #5684B0;
+  --dot-3: #C16630;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { --shadow: var(--shadow-dark); }
+
+  :root[data-palette="floral"] {
+    --bg: #17180B;
+    --surface: #222312;
+    --text: #F1F1E2;
+    --muted: #C3C3A2;
+    --line: #36371D;
+    --accent: #A897E6;
+    --primary: #9DD431;
+    --primary-hover: #B2E356;
+    --on-primary: #17180B;
+    --english-text: #8DB5EA;
+    --band-english: #151E2B;
+    --band-warm: #1E1F0F;
+    --tint-english: #1B283B;
+    --tint-music: #243112;
+    --cta-bg: #2A2250;
+    --cta-text: #F1F1E2;
+    --glow: rgba(109, 90, 172, .25);
+  }
+
+  :root[data-palette="lavender"] {
+    --bg: #021E1F;
+    --surface: #062C2D;
+    --text: #F3EEF4;
+    --muted: #B7C9CA;
+    --line: #10403F;
+    --accent: #EEA2AF;
+    --primary: #EEA2AF;
+    --primary-hover: #F4BBC5;
+    --on-primary: #021E1F;
+    --english-text: #B9BCEA;
+    --band-english: #14193A;
+    --band-warm: #26141C;
+    --tint-english: #1E2248;
+    --tint-music: #3A1D27;
+    --cta-bg: #35738C;
+    --cta-text: #FFFFFF;
+    --glow: rgba(157, 160, 215, .2);
+  }
+
+  :root[data-palette="olive"] {
+    --bg: #15170A;
+    --surface: #20230F;
+    --text: #F1F0E6;
+    --muted: #C4C4AE;
+    --line: #33361A;
+    --accent: #D1B878;
+    --primary: #9B9E56;
+    --primary-hover: #B0B36B;
+    --on-primary: #15170A;
+    --english-text: #BCD0C9;
+    --band-english: #142020;
+    --band-warm: #231A1B;
+    --tint-english: #1C2A27;
+    --tint-music: #2A2C12;
+    --cta-bg: #3B300C;
+    --cta-text: #F1F0E6;
+    --glow: rgba(162, 183, 176, .15);
+  }
+
+  :root[data-palette="desert"] {
+    --bg: #1C0D07;
+    --surface: #2A150C;
+    --text: #F4E9DF;
+    --muted: #CDB3A2;
+    --line: #43261A;
+    --accent: #E08A55;
+    --primary: #C16630;
+    --primary-hover: #D27540;
+    --on-primary: #1C0D07;
+    --english-text: #8FB0D6;
+    --band-english: #18212D;
+    --band-warm: #251209;
+    --tint-english: #1F2B3A;
+    --tint-music: #3A1C0F;
+    --cta-bg: #22303F;
+    --cta-text: #F4E9DF;
+    --cta-btn-text: #1C0D07;
+    --glow: rgba(86, 132, 176, .18);
+  }
+}
