@@ -51,6 +51,8 @@ p { margin: 0 0 1em; }
 .btn-primary:hover { background: var(--primary-hover); }
 .btn-ghost { border-color: currentColor; color: var(--accent); }
 .btn-light { background: var(--cta-btn); color: var(--cta-btn-text); }
+.btn-soon { border-color: currentColor; color: var(--accent); opacity: .7; cursor: default; }
+.btn-soon:hover { transform: none; }
 .btn-sm { padding: .5rem 1rem; font-size: .9rem; white-space: nowrap; }
 .icon { width: 20px; height: 20px; fill: currentColor; flex: none; }
 

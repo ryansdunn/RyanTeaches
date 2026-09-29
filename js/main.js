@@ -58,7 +58,7 @@ const ES = {
   "practice.3.body": "Tareas cortas habladas para que te acostumbres a hablar en voz alta antes de la próxima clase.",
   "practice.4.title": "Progreso visible",
   "practice.4.body": "Puedes ver lo que has terminado, y los padres también.",
-  "practice.demo": "Prueba una demo",
+  "practice.demo": "Demo próximamente",
   "app.week": "Esta semana",
   "app.t1": "Tarjetas: palabras de guitarra",
   "app.t1s": "12 tarjetas · hecho",
