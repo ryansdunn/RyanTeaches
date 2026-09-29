@@ -95,10 +95,10 @@ const ES = {
 
   "about.eyebrow": "Sobre mí",
   "about.title": "Hola, soy Ryan",
-  "about.p1": "Soy músico y profesor de inglés, de Estados Unidos, y vivo en el Cabañal. He publicado mi propia música, he enseñado música y teatro a niños y he pasado un curso escolar como auxiliar de conversación de inglés en un colegio público español, donde llevé la música al aula.",
+  "about.p1": "Soy músico y profesor de inglés, de Estados Unidos, y vivo en el Cabañal. Estudié música en la universidad y, desde entonces, he publicado mis propias canciones, he enseñado música y teatro a niños y he pasado un curso escolar como auxiliar de conversación de inglés en un colegio público español, donde llevé la música al aula.",
   "about.p2": "Creo que el aprendizaje nace de la curiosidad, el cariño y la colaboración. Nadie aprende bien cuando le obligan. Cuando aprendes una canción que de verdad te importa, el inglés llega con mucha más facilidad.",
   "about.c1": "Diploma TEFL de Nivel 5",
-  "about.c2": "Licenciatura (BA), Carleton College (EE. UU.)",
+  "about.c2": "Grado en Música (BA), Carleton College (EE. UU.)",
   "about.c3": "Exprofesor de música y teatro, Montessori School of Syracuse",
   "about.c4": "Exauxiliar de conversación de inglés (NALCAP), Almassora",
   "about.c5": "Hablo inglés y español",
