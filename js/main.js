@@ -6,6 +6,7 @@ const ES = {
   "nav.about": "Sobre mí",
   "nav.prices": "Precios",
   "nav.faq": "Preguntas",
+  "nav.events": "Eventos",
   "cta.short": "Reservar prueba",
   "cta.trial": "Reserva una clase de prueba gratis",
 
@@ -134,15 +135,80 @@ const ES = {
   "faq.3.q": "¿Necesito mi propio instrumento?",
   "faq.3.a": "No para las clases en mi despacho, donde tengo instrumentos que puedes usar. Para las clases en tu casa, necesitas el tuyo. Te recomiendo tener una guitarra, un piano o un teclado en casa para practicar entre clases, y si tocas la guitarra, trae la tuya a clase cuando puedas.",
   "faq.4.q": "¿Puedo dar clases de música sin la parte de inglés?",
-  "faq.4.a": "Las clases de música solo se ofrecen dentro de Música en inglés. Si solo quieres inglés, esas clases cuestan 25 € la hora.",
+  "faq.4.a": "Las clases de música solo se ofrecen dentro de Música en inglés. Si solo quieres inglés, esas clases cuestan 20 € la hora.",
   "faq.5.q": "¿Las clases son buenas para niños?",
   "faq.5.a": "Sí. He enseñado música a niños de primaria y he trabajado en colegios de España y de Estados Unidos. Doy clase a niños, adolescentes y adultos.",
+
+  "events.eyebrow": "Eventos que organizo",
+  "events.title": "Ven a practicar inglés con nosotros",
+  "events.lead": "Organizo Socialize in English, un grupo de Meetup en Valencia. Jugamos, charlamos y conocemos gente nueva, todo en inglés. Todos los niveles son bienvenidos.",
+  "events.empty": "Ahora mismo no hay eventos programados. Únete al grupo para enterarte del próximo.",
+  "events.join": "Únete a Socialize in English en Meetup",
 
   "final.title": "¿Listo para tocar tu primera canción en inglés?",
   "final.body": "Mándame un mensaje por WhatsApp, y tu primera clase es gratis.",
   "final.btn": "Escríbeme por WhatsApp",
   "footer.portfolio": "Mi música y portfolio",
 };
+
+// Upcoming Meetup events. To add one, copy an entry and change the details.
+// Times are Valencia time; an event disappears from the page once it ends.
+const EVENTS = [
+  {
+    start: "2026-10-22T19:00:00+02:00",
+    end: "2026-10-22T20:00:00+02:00",
+    url: "https://www.meetup.com/socialize-in-english/events/316778764/",
+    place: "Passeig Marítim de València",
+    image: "images/event-cornhole.jpg",
+    en: {
+      title: "English Through Cornhole: Games, Chat & Good Vibes",
+      body: "Cornhole and other outdoor games on the beach, chatting in English the whole time. No experience needed, and we'll explain the rules from scratch.",
+    },
+    es: {
+      title: "English Through Cornhole: juegos, charla y buen rollo",
+      body: "Cornhole y otros juegos al aire libre en la playa, hablando en inglés todo el rato. No necesitas experiencia: explicamos las reglas desde cero.",
+    },
+  },
+];
+const EVENT_RSVP = { en: "RSVP on Meetup", es: "Apúntate en Meetup" };
+
+function renderEvents(lang) {
+  const board = document.getElementById("event-board");
+  const now = Date.now();
+  const upcoming = EVENTS
+    .filter((ev) => new Date(ev.end) > now)
+    .sort((a, b) => new Date(a.start) - new Date(b.start));
+  const locale = lang === "es" ? "es-ES" : "en-US";
+  const fmt = (opts) => new Intl.DateTimeFormat(locale, { timeZone: "Europe/Madrid", ...opts });
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
+  board.innerHTML = upcoming.map((ev) => {
+    const start = new Date(ev.start);
+    const end = new Date(ev.end);
+    const text = ev[lang] || ev.en;
+    const time = fmt({ hour: "numeric", minute: "2-digit" });
+    const image = ev.image
+      ? `<img class="event-image" src="${esc(ev.image)}" alt="" width="880" height="495" loading="lazy">`
+      : "";
+    return `<article class="event-poster">
+      ${image}
+      <div class="event-body">
+      <div class="event-date">
+        <span>${esc(fmt({ month: "short" }).format(start))}</span>
+        <strong>${fmt({ day: "numeric" }).format(start)}</strong>
+        <span>${esc(fmt({ weekday: "short" }).format(start))}</span>
+      </div>
+      <div class="event-info">
+        <h3>${esc(text.title)}</h3>
+        <p class="event-meta">${esc(time.format(start))} – ${esc(time.format(end))}<span>${esc(ev.place)}</span></p>
+        <p>${esc(text.body)}</p>
+        <a class="btn btn-primary btn-sm" href="${esc(ev.url)}" target="_blank" rel="noopener">${EVENT_RSVP[lang]}</a>
+      </div>
+      </div>
+    </article>`;
+  }).join("");
+  document.getElementById("event-empty").hidden = upcoming.length > 0;
+}
 
 // The number is stored in reversed chunks and only turned into a link when
 // someone clicks, so it never appears in the page for scrapers to read.
@@ -178,6 +244,7 @@ function setLang(lang) {
     btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
   });
   currentLang = lang;
+  renderEvents(lang);
   try { localStorage.setItem("lang", lang); } catch {}
 }
 
